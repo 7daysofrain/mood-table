@@ -1,0 +1,13 @@
+{
+  "hyperion": "192.168.1.158",
+  "effectMap": {
+    "p1": {
+      "name": "Rainbow swirl",
+      "ledColor": [255,0,0]
+    },
+    "p2": {
+      "name": "Warm mood blobs",
+      "ledColor": [255,0,155]
+    }
+  }
+}
