@@ -8,6 +8,13 @@
     "p2": {
       "name": "Warm mood blobs",
       "ledColor": [255,0,155]
+    },
+    "p4": {
+      "name": "Candle",
+      "ledColor": [255,0,83],
+      "args": {
+        "color": [255,0,83]
+      }
     }
   }
 }
