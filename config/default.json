@@ -15,6 +15,54 @@
       "args": {
         "color": [255,0,83]
       }
+    },
+    "p5": {
+      "name": "Collision",
+      "ledColor": [62,80,245]
+    },
+    "p6": {
+      "name": "Color Traces",
+      "ledColor": [12,0,255]
+    },
+    "p7": {
+      "name": "Color Swirl",
+      "ledColor": [0,255,14]
+    },
+    "p8": {
+      "name": "Knight Rider",
+      "ledColor": [255,0,0]
+    },
+    "p9": {
+      "name": "Pac-Man",
+      "ledColor": [255,247,0]
+    },
+    "p10": {
+      "name": "Plasma",
+      "ledColor": [0,255,40]
+    },
+    "p11": {
+      "name": "Sea Waves",
+      "ledColor": [0,29,255]
+    },
+    "p12": {
+      "name": "Snake",
+      "ledColor": [255,67,0]
+    },
+    "p13": {
+      "name": "Sparks",
+      "ledColor": [192,251,250]
+    },
+    "p14": {
+      "name": "Collision",
+      "ledColor": [62,80,245]
+    },
+    "p15": {
+      "name": "Collision",
+      "ledColor": [62,80,245]
+    },
+    "p16": {
+      "name": "Collision",
+      "ledColor": [62,80,245]
     }
   }
 }
