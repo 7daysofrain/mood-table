@@ -2,20 +2,32 @@
   "name": "f1-led",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app/index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon --exec babel-node app/index.js",
+    "build": "babel index.js -d dist"
   },
+  "type": "module",
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.12.13",
+    "@babel/plugin-proposal-decorators": "^7.12.13",
     "config": "^3.3.3",
     "hyperion-client": "^1.0.3",
     "lodash": "^4.5.1",
     "midi": "^1.0.0",
+    "mobx": "^6.1.5",
+    "mobx-state-tree": "^5.0.1",
     "node-hid": "^0.7.0",
+    "node-traktor-f1": "git+https://github.com/7daysofrain/node-traktor-f1.git",
     "nodemon": "^2.0.7",
     "tinycolor2": "^1.4.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.13",
+    "@babel/node": "^7.12.13",
+    "@babel/preset-env": "^7.12.13"
   }
 }

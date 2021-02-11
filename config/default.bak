@@ -18,11 +18,8 @@
       "mainColor": [62,80,245]
     },
    {
-      "name": "Blue mood blobs",
-      "mainColor": [12,0,255],
-      "config": {
-        "color": "Color"
-      }
+      "name": "Color Traces",
+      "mainColor": [12,0,255]
     },
    {
       "name": "Color Swirl",

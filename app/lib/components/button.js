@@ -5,7 +5,6 @@ function Button(name,config,controller) {
   this.parseInput = function(data) {
     var isPressed = data[config.addr] & bitmask;
     if(pressed ^ isPressed) {
-      console.log(name)
       pressed = isPressed;
       controller.emit(name + (pressed ? ":pressed" : ":released"));
     }

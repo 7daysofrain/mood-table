@@ -1,23 +1,28 @@
 const Hyperion = require('hyperion-client');
-const traktorF1 = require('./lib/traktor_f1');
+const traktorF1 = require('./lib/traktor_f1.js');
 const config = require('config');
 
 const f1 = new traktorF1.TraktorF1();
 f1.setLED('capture',1);
 f1.setLED('sync',255);
 
-const effectMap = config.get('effectMap');
+const effectMap = config.get('effects');
 
+let index = 1;
 for (const [key, value] of Object.entries(effectMap)) {
     console.log(`${key}: ${value}`);
-    f1.on(`${key}:pressed`,() => hyperion.setEffect(value.name, value.args));
-    f1.setRGB(key,...value.ledColor);
+    f1.on(`${index}:pressed`,() => hyperion.setEffect(value.name, value.args));
+    f1.setRGB(index,...value.ledColor);
+    index++;
 }
 
 const hyperion = new Hyperion( config.get('hyperion'), 19444 );
 hyperion.on('connect', function(){
     console.log('connected');
-    hyperion.sendMessage('serverinfo', e => console.log(e));
+    hyperion.sendMessage({
+        "command":"serverinfo",
+        "tan":1
+    }, (e,e2) => console.log(JSON.stringify(e2)));
 });
 hyperion.on('error', function(err){
     console.error('oops...', err);
