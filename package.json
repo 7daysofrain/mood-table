@@ -5,7 +5,7 @@
   "main": "app/index.js",
   "scripts": {
     "start": "nodemon --exec babel-node app/index.js",
-    "prod": "NODE_ENV=production && babel-node app/index.js",
+    "prod": "export NODE_ENV=production && babel-node app/index.js",
     "build": "babel index.js -d dist"
   },
   "type": "module",
