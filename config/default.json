@@ -315,6 +315,265 @@
           "defaultValue": 60
         }
       ]
+    },
+    {
+      "name": "Snake",
+      "mainColor": [
+        255,
+        0,
+        0
+      ],
+      "config": [
+        {
+          "name": "color",
+          "type": "color",
+          "defaultValue": [255,0,0]
+        },
+        {
+          "name": "background-color",
+          "type": "color",
+          "defaultValue": [0,0,0]
+        },
+        {
+          "name": "percentaje",
+          "type": "int",
+          "limits": [
+            0,
+            100
+          ],
+          "defaultValue": 10
+        },
+        {
+          "name": "rotation-time",
+          "type": "int",
+          "limits": [
+            1,
+            30
+          ],
+          "defaultValue": 12
+        }
+      ]
+    },
+    {
+      "name": "Sparks",
+      "mainColor": [
+        255,
+        255,
+        255
+      ],
+      "config": [
+        {
+          "name": "color",
+          "type": "color",
+          "defaultValue": [255,0,0]
+        },
+        {
+          "name": "brightness",
+          "type": "int",
+          "limits": [
+            40,
+            100
+          ],
+          "defaultValue": 100
+        },
+        {
+          "name": "random-color",
+          "type": "bool",
+          "defaultValue": false
+        },
+        {
+          "name": "rotation-time",
+          "type": "int",
+          "limits": [
+            1,
+            20
+          ],
+          "defaultValue": 3
+        },
+        {
+          "name": "saturation",
+          "type": "int",
+          "limits": [
+            1,
+            100
+          ],
+          "defaultValue": 100
+        },
+        {
+          "name": "sleep-time",
+          "type": "float",
+          "limits": [
+            0,
+            1
+          ],
+          "defaultValue": 0.05
+        }
+      ]
+    },
+    {
+      "name": "Strobe red",
+      "mainColor": [
+        255,
+        0,
+        0
+      ],
+      "config": [
+        {
+          "name": "color-start",
+          "type": "color",
+          "defaultValue": [255,0,50]
+        },
+        {
+          "name": "color-end",
+          "type": "fixed",
+          "defaultValue": [0,0,0]
+        },
+        {
+          "name": "repeat-count",
+          "type": "fixed",
+          "defaultValue": 0
+        },
+        {
+          "name": "color-start-time",
+          "type": "fixed",
+          "defaultValue": 100
+        },
+        {
+          "name": "color-end-time",
+          "type": "fixed",
+          "defaultValue": 100
+        },
+        {
+          "name": "fade-in-time",
+          "type": "fixed",
+          "defaultValue": 100
+        },
+        {
+          "name": "fade-out-time",
+          "type": "fixed",
+          "defaultValue": 100
+        },
+        {
+          "name": "mantain-end-color",
+          "type": "fixed",
+          "defaultValue": true
+        }
+      ]
+    },
+    {
+      "name": "Strobe white",
+      "mainColor": [
+        255,
+        255,
+        255
+      ],
+      "config": [
+        {
+          "name": "color-start",
+          "type": "color",
+          "defaultValue": [255,255,255]
+        },
+        {
+          "name": "color-end",
+          "type": "fixed",
+          "defaultValue": [0,0,0]
+        },
+        {
+          "name": "repeat-count",
+          "type": "fixed",
+          "defaultValue": 0
+        },
+        {
+          "name": "color-start-time",
+          "type": "fixed",
+          "defaultValue": 50
+        },
+        {
+          "name": "color-end-time",
+          "type": "fixed",
+          "defaultValue": 10
+        },
+        {
+          "name": "fade-in-time",
+          "type": "fixed",
+          "defaultValue": 100
+        },
+        {
+          "name": "fade-out-time",
+          "type": "fixed",
+          "defaultValue": 100
+        },
+        {
+          "name": "mantain-end-color",
+          "type": "fixed",
+          "defaultValue": true
+        }
+      ]
+    },
+    {
+      "name": "Trails",
+      "mainColor": [
+        255,
+        255,
+        255
+      ],
+      "config": [
+        {
+          "name": "color",
+          "type": "color",
+          "defaultValue": [255,255,255]
+        },
+        {
+          "name": "height",
+          "type": "int",
+          "limits": [
+            1,
+            20
+          ],
+          "defaultValue": 8
+        },
+        {
+          "name": "min_len",
+          "type": "int",
+          "limits": [
+            1,
+            20
+          ],
+          "defaultValue": 2
+        },
+        {
+          "name": "max_len",
+          "type": "int",
+          "limits": [
+            1,
+            20
+          ],
+          "defaultValue": 7
+        },
+        {
+          "name": "random",
+          "type": "bool",
+          "defaultValue": false
+        },
+        {
+          "name": "speed",
+          "type": "int",
+          "limits": [
+            1,
+            100
+          ],
+          "defaultValue": 30
+        },
+        {
+          "name": "trails",
+          "type": "int",
+          "limits": [
+            1,
+            20
+          ],
+          "defaultValue": 3
+        }
+      ]
     }
   ]
 }
