@@ -1,5 +1,7 @@
 {
   "hyperion": "192.168.1.158",
+  "dancingPiPath": "",
+  "dancingPiScript": "app/test.py",
   "effects": [
    {
       "name": "Atomic swirl",
