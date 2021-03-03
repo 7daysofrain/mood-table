@@ -18,12 +18,17 @@ export default class DancingPIView {
     }
     runPython(file, args) {
         const options = args ? {...this.pythonDefaults, args} : this.pythonDefaults;
-        PythonShell.run(file, options, function (err, results) {
+        if(this.shell) {
+            this.shell.kill();
+        }
+        this.shell = PythonShell.run(file, options, function (err, results) {
             //On 'results' we get list of strings of all print done in your py scripts sequentially.
             if (err) throw err;
-            console.log('results: ');
-            for (let i of results) {
-                console.log(i, "---->", typeof i)
+            if(results){
+                console.log('results: ');
+                for (let i of results) {
+                    console.log(i, "---->", typeof i)
+                }
             }
         });
     }
