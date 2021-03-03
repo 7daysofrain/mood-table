@@ -24,6 +24,7 @@
     "node-hid": "^0.7.0",
     "node-traktor-f1": "git+https://github.com/7daysofrain/node-traktor-f1.git",
     "nodemon": "^2.0.7",
+    "python-shell": "^2.0.3",
     "tinycolor2": "^1.4.1"
   },
   "devDependencies": {

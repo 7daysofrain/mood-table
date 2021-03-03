@@ -2,6 +2,7 @@ import F1View from "./F1View.js";
 import lcdName from "../../utils/lcdName.js";
 import f1Navigator from "./f1Navigator.js";
 import blinkF1RGBButton from "../../utils/blinkf1RGBbutton.js";
+import {PythonShell} from "python-shell";
 
 export default class F1HomeView extends F1View{
     constructor() {
@@ -53,6 +54,11 @@ export default class F1HomeView extends F1View{
             }
             index++;
         }
+
+        // Dancing PY
+        this.attachListener('shift:pressed', this.scrollFX);
+        this.f1.setLED(`shift`, 1);
+
         // Navigation
         this.f1.setLED('quant',currentFX ? 1 : 0);
     }
@@ -62,5 +68,22 @@ export default class F1HomeView extends F1View{
     }
     toString() {
         return this.key + ' screen';
+    }
+    scrollFX = () => {
+        let options = {
+            mode: 'text',
+            pythonOptions: ['-u'],
+            scriptPath: process.cwd(),//Path to your script
+            args: [JSON.stringify({"name": ["xyz", "abc"], "age": ["28","26"]})]//Approach to send JSON as when I tried 'json' in mode I was getting error.
+        };
+        console.log(`Current directory: ${process.cwd()}`);
+        PythonShell.run('app/test.py', options, function (err, results) {
+            //On 'results' we get list of strings of all print done in your py scripts sequentially.
+            // if (err) throw err;
+            // console.log('results: ');
+            // for (let i of results) {
+            //     console.log(i, "---->", typeof i)
+            // }
+        });
     }
 }

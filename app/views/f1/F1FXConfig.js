@@ -5,6 +5,7 @@ import allLedsRgb from "../../utils/allLedsRgb.js";
 import chroma from 'chroma-js'
 import debounce from "../../utils/debounce.js";
 import clamp from "../../utils/clamp.js";
+import {PythonShell} from 'python-shell';
 
 export default class F1FXConfig extends F1View{
     FX_REFRESH_DEBOUNCE = 250;
