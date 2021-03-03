@@ -11,9 +11,13 @@ class AppState {
     page = 1
     fxs = {}
     _currentFX = null;
+    _currentViz = null;
     _currentFXArgs = {}
     get currentFX() {
         return this._currentFX;
+    }
+    get currentViz() {
+        return this._currentViz;
     }
     get currentFXArgs() {
         return this._currentFXArgs;
@@ -34,6 +38,9 @@ class AppState {
     setFX(name) {
         this._currentFX = this.fxs[name];
         this._currentFXArgs = this._currentFX.config.reduce(configToArg,{})
+    }
+    setViz(name) {
+        this._currentViz = name;
     }
     updateFXArg(argname, value) {
         //console.log("update", argname, value)

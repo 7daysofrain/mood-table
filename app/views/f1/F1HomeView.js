@@ -2,7 +2,6 @@ import F1View from "./F1View.js";
 import lcdName from "../../utils/lcdName.js";
 import f1Navigator from "./f1Navigator.js";
 import blinkF1RGBButton from "../../utils/blinkf1RGBbutton.js";
-import {dancingPiProxy} from "../../utils/dancingPiProxy.js";
 
 export default class F1HomeView extends F1View{
     constructor() {
@@ -28,7 +27,9 @@ export default class F1HomeView extends F1View{
                 }
             })
         // DancingPi
-        this.attachListener('shift:pressed', dancingPiProxy.scroll);
+        this.attachListener('shift:pressed', () => this.store.setViz('scroll'));
+        this.attachListener('reverse:pressed', () => this.store.setViz('energy'));
+        this.attachListener('type:pressed', () => this.store.setViz('spectrum'));
     }
     hide(){
         super.hide();
