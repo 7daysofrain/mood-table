@@ -17,7 +17,7 @@ export default class DancingPIView {
         autorun((store) => this.update(this.store));
     }
     runPython(file, args) {
-        const options = {...this.pythonDefaults, args}
+        const options = args ? {...this.pythonDefaults, args} : this.pythonDefaults;
         PythonShell.run(file, options, function (err, results) {
             //On 'results' we get list of strings of all print done in your py scripts sequentially.
             if (err) throw err;
@@ -34,7 +34,7 @@ export default class DancingPIView {
         }
         else{
             console.log('No Viz selected');
-            this.runPython(config.get('dancingPiOffScript'),[""])
+            this.runPython(config.get('dancingPiOffScript'))
         }
         return true;
     }
