@@ -14,6 +14,7 @@
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "^7.12.13",
     "@babel/plugin-proposal-decorators": "^7.12.13",
+    "chroma-js": "^2.1.0",
     "config": "^3.3.3",
     "hyperion-client": "^1.0.3",
     "lodash": "^4.5.1",

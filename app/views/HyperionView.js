@@ -1,7 +1,8 @@
 import Hyperion from "hyperion-client";
 import {autorun} from "mobx";
 import config from 'config';
-import appState from "./models/app-state.js";
+import appState from "../models/app-state.js";
+import throttle from "../utils/throttle.js";
 
 export default class HyperionView {
     constructor() {
@@ -20,14 +21,15 @@ export default class HyperionView {
         this.store = appState;
         autorun((store) => this.update(this.store));
     }
-    update(store) {
+    update() {
         if(this.store.currentFX) {
-            console.log('current FX: ' + this.store.currentFX.name);
-            this.hyperion.setEffect(this.store.currentFX.name);
+            console.log(`current FX: ${this.store.currentFX.name}: ${JSON.stringify(this.store.currentFXArgs)}`);
+            this.hyperion.setEffect(this.store.currentFX.name, this.store.currentFXArgs);
         }
         else{
             console.log('No FX selected');
             this.hyperion.clearall();
         }
+        return true;
     }
 }

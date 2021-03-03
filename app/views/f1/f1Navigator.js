@@ -1,5 +1,5 @@
-import F1HomeView from "./views/f1/F1HomeView.js";
-import F1FXConfig from "./views/f1/F1FXConfig.js";
+import F1HomeView from "./F1HomeView.js";
+import F1FXConfig from "./F1FXConfig.js";
 
 class F1Navigator{
     _currentScreen = null;

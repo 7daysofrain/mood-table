@@ -1,23 +1,16 @@
 import F1View from "./F1View.js";
 import lcdName from "../../utils/lcdName.js";
-import f1Navigator from "../../f1Navigator.js";
+import f1Navigator from "./f1Navigator.js";
+import blinkF1RGBButton from "../../utils/blinkf1RGBbutton.js";
 
 export default class F1HomeView extends F1View{
     constructor() {
         super();
         this.key = 'home'
     }
-    update(store) {
+    show() {
+        super.show();
         const { currentFX } = this.store;
-
-        // LCD
-        if(currentFX) {
-            this.f1.setLCDString(lcdName(currentFX.name))
-        }
-        else {
-            this.f1.setLCDString('Fx')
-        }
-
         // Main Buttons
         let index = 1;
         for (const [key, value] of Object.entries(this.store.fxs)) {
@@ -28,9 +21,40 @@ export default class F1HomeView extends F1View{
 
         // Navigation
         this.f1.setLED('quant',currentFX ? 1 : 0);
-        if(currentFX) {
-            this.attachListener('quant:pressed', () => f1Navigator.navigate('fx-config'))
+            this.attachListener('quant:pressed', () => {
+                if(this.store.currentFX) {
+                    f1Navigator.navigate('fx-config')
+                }
+            })
+    }
+    hide(){
+        super.hide();
+        this.selectedBlinkStop();
+    }
+    update() {
+        const { currentFX } = this.store;
+
+        // LCD
+        if(this.selectedBlinkStop){
+            this.selectedBlinkStop();
         }
+        if(currentFX) {
+            this.f1.setLCDString(lcdName(currentFX.name))
+        }
+        else {
+            this.f1.setLCDString('Fx')
+        }
+
+        let index = 1;
+        for (const [key, value] of Object.entries(this.store.fxs)) {
+            this.f1.setRGB('p' + index,...value.color);
+            if(currentFX && value.name === currentFX.name){
+                this.selectedBlinkStop = blinkF1RGBButton(this.f1, 'p' + (index), currentFX.color);
+            }
+            index++;
+        }
+        // Navigation
+        this.f1.setLED('quant',currentFX ? 1 : 0);
     }
     // Handlers
     dispose() {

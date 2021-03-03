@@ -22,6 +22,12 @@ export default class F1View {
     }
     show() {
         this._visible = true;
+        for (const [key, value] of Object.entries(this.f1.leds)) {
+            this.f1.setLED(key, 0);
+        }
+        for (const [key, value] of Object.entries(this.f1.rgb_leds)) {
+            this.f1.setRGB(key, 0, 0, 0);
+        }
         this._update();
     }
     hide() {
