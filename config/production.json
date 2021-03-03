@@ -1,0 +1,5 @@
+{
+  "dancingPiPath": "/home/pi/dancyPi-audio-reactive-led/python",
+  "dancingPiVizScript": "visualization.py",
+  "dancingPiOffScript": "off.py"
+}

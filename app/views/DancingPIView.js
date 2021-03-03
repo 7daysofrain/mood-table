@@ -34,7 +34,7 @@ export default class DancingPIView {
         }
         else{
             console.log('No Viz selected');
-            this.runPython(config.get('dancingPiOffScript'),[this.store.currentViz])
+            this.runPython(config.get('dancingPiOffScript'),[""])
         }
         return true;
     }
