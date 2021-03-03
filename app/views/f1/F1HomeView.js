@@ -2,6 +2,7 @@ import F1View from "./F1View.js";
 import lcdName from "../../utils/lcdName.js";
 import f1Navigator from "./f1Navigator.js";
 import blinkF1RGBButton from "../../utils/blinkf1RGBbutton.js";
+import blinkF1Button from "../../utils/blinkf1button.js";
 
 export default class F1HomeView extends F1View{
     constructor() {
@@ -10,7 +11,7 @@ export default class F1HomeView extends F1View{
     }
     show() {
         super.show();
-        const { currentFX } = this.store;
+        const { currentFX, currentViz } = this.store;
         // Main Buttons
         let index = 1;
         for (const [key, value] of Object.entries(this.store.fxs)) {
@@ -27,20 +28,32 @@ export default class F1HomeView extends F1View{
                 }
             })
         // DancingPi
-        this.attachListener('shift:pressed', () => this.store.setViz('scroll'));
-        this.attachListener('reverse:pressed', () => this.store.setViz('energy'));
-        this.attachListener('type:pressed', () => this.store.setViz('spectrum'));
+        const switchViz = viz => {
+            const { currentViz } = this.store;
+            if(currentViz === viz){
+                this.store.setViz('');
+            }
+            else{
+                this.store.setViz(viz);
+            }
+        }
+        this.attachListener('reverse:pressed', () => switchViz('scroll'));
+        this.attachListener('type:pressed', () => switchViz('energy'));
+        this.attachListener('size:pressed', () => switchViz('spectrum'));
     }
     hide(){
         super.hide();
         this.selectedBlinkStop();
     }
     update() {
-        const { currentFX } = this.store;
+        const { currentFX, currentViz } = this.store;
 
         // LCD
         if(this.selectedBlinkStop){
             this.selectedBlinkStop();
+        }
+        if(this.selectedVizBlinkStop){
+            this.selectedVizBlinkStop();
         }
         if(currentFX) {
             this.f1.setLCDString(lcdName(currentFX.name))
@@ -59,7 +72,17 @@ export default class F1HomeView extends F1View{
         }
 
         // Dancing PY
-        this.f1.setLED(`shift`, 1);
+        this.f1.setLED(`reverse`, 1);
+        this.f1.setLED(`type`, 1);
+        this.f1.setLED(`size`, 1);
+
+        if(currentViz === 'scroll') {
+            this.selectedVizBlinkStop = blinkF1Button(this.f1, 'reverse', 200);
+        } else if(currentViz === 'energy') {
+            this.selectedVizBlinkStop = blinkF1Button(this.f1, 'type', 200);
+        } else if(currentViz === 'spectrum') {
+            this.selectedVizBlinkStop = blinkF1Button(this.f1, 'size', 200);
+        }
 
         // Navigation
         this.f1.setLED('quant',currentFX ? 1 : 0);
