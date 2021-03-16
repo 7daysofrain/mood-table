@@ -3,6 +3,7 @@
   "dancingPiPath": "",
   "dancingPiVizScript": "app/test.py",
   "dancingPiOffScript": "app/test.py",
+  "http-port": 8080,
   "effects": [
    {
       "name": "Atomic swirl",

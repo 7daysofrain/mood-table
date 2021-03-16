@@ -17,6 +17,7 @@
     "@babel/plugin-proposal-decorators": "^7.12.13",
     "chroma-js": "^2.1.0",
     "config": "^3.3.3",
+    "express": "^4.17.1",
     "hyperion-client": "^1.0.3",
     "lodash": "^4.5.1",
     "midi": "^1.0.0",
