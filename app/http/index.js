@@ -3,11 +3,16 @@
 import config from 'config';
 import http from 'http';
 import express from 'express';
+import path from 'path';
 
 const debug = console.log;
 
 export default function createServer(){
     const app = express();
+    app.use('/static', express.static( path.join(process.cwd(), 'app/views/web-display/build/static')))
+    app.get('/', (req, res) => {
+        res.sendFile(path.join(process.cwd(), 'app/views/web-display/build/index.html'));
+    })
     const server = http.createServer(app);
     server.listen(config.get('http-port'));
     server.on('error', onError);
@@ -52,6 +57,6 @@ export default function createServer(){
             : 'port ' + addr.port;
         debug('Listening on ' + bind);
     }
-    
+
     return server;
 };

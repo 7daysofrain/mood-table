@@ -2,7 +2,7 @@ import traktorF1 from 'node-traktor-f1/lib/traktor_f1.js';
 import {autorun} from "mobx";
 import appState from "../../models/app-state.js";
 
-const f1 = new traktorF1.TraktorF1();
+//const f1 = new traktorF1.TraktorF1();
 
 export default class F1View {
     listeners = [];

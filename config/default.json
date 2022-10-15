@@ -1,5 +1,5 @@
 {
-  "hyperion": "192.168.1.158",
+  "hyperion": "192.168.1.11",
   "dancingPiPath": "",
   "dancingPiVizScript": "app/test.py",
   "dancingPiOffScript": "app/test.py",

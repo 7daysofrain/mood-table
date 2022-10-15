@@ -1,5 +1,5 @@
 {
-  "name": "f1-led",
+  "name": "Mood Table",
   "version": "1.0.0",
   "description": "",
   "main": "app/index.js",
@@ -10,7 +10,7 @@
   },
   "type": "module",
   "keywords": [],
-  "author": "",
+  "author": "Joseba Alonso",
   "license": "ISC",
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "^7.12.13",
@@ -27,7 +27,8 @@
     "node-traktor-f1": "git+https://github.com/7daysofrain/node-traktor-f1.git",
     "nodemon": "^2.0.7",
     "python-shell": "^2.0.3",
-    "tinycolor2": "^1.4.1"
+    "tinycolor2": "^1.4.1",
+    "ws": "^7.4.4"
   },
   "devDependencies": {
     "@babel/core": "^7.12.13",
