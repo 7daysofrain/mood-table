@@ -1,8 +1,8 @@
 import F1View from "./F1View.js";
-import lcdName from "../../utils/lcdName.js";
+import lcdName from "../../libs/f1/utils/lcdName.js";
 import f1Navigator from "./f1Navigator.js";
-import blinkF1RGBButton from "../../utils/blinkf1RGBbutton.js";
-import blinkF1Button from "../../utils/blinkf1button.js";
+import blinkF1RGBButton from "../../libs/f1/utils/blinkf1RGBbutton.js";
+import blinkF1Button from "../../libs/f1/utils/blinkf1button.js";
 
 export default class F1HomeView extends F1View{
     constructor() {

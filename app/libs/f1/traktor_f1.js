@@ -5,12 +5,12 @@ const util = require('util');
 const Emitter = require('events').EventEmitter;
 const _ = require('lodash');
 
-const Button = require('./components/button');
-const StepWheel = require('./components/stepwheel');
-const Slider = require('./components/slider');
-const LED = require('./components/led');
-const LED_RGB = require('./components/led-rgb');
-const LCDDigit = require('./components/lcd-digit');
+const Button = require('./components/button.js');
+const StepWheel = require('./components/stepwheel.js');
+const Slider = require('./components/slider.js');
+const LED = require('./components/led.js');
+const LED_RGB = require('./components/led-rgb.js');
+const LCDDigit = require('./components/lcd-digit.js');
 
 const f1Config = require('./traktor_f1_config.json');
 

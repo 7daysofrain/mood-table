@@ -1,4 +1,4 @@
-var traktorF1 = require('../lib/traktor-f1/traktor_f1');
+var traktorF1 = require('../f1/traktor-f1/traktor_f1');
 var tinycolor = require('tinycolor2');
 var _ = require('lodash');
 

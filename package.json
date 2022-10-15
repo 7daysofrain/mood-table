@@ -1,7 +1,7 @@
 {
-  "name": "Mood Table",
+  "name": "mood-table",
   "version": "1.0.0",
-  "description": "",
+  "description": "Mood Table",
   "main": "app/index.js",
   "scripts": {
     "start": "nodemon --exec babel-node app/index.js",

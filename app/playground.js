@@ -1,5 +1,5 @@
 const Hyperion = require('hyperion-client');
-const traktorF1 = require('./lib/traktor_f1.js');
+const traktorF1 = require('./libs/f1/traktor_f1.js');
 const config = require('config');
 
 const f1 = new traktorF1.TraktorF1();
