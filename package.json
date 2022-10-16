@@ -1,38 +1,16 @@
 {
   "name": "mood-table",
-  "version": "1.0.0",
-  "description": "Mood Table",
-  "main": "app/index.js",
-  "scripts": {
-    "start": "nodemon --exec babel-node app/index.js",
-    "prod": "export NODE_ENV=production && babel-node app/index.js",
-    "build": "babel index.js -d dist"
-  },
-  "type": "module",
-  "keywords": [],
-  "author": "Joseba Alonso",
-  "license": "ISC",
-  "dependencies": {
-    "@babel/plugin-proposal-class-properties": "^7.12.13",
-    "@babel/plugin-proposal-decorators": "^7.12.13",
-    "chroma-js": "^2.1.0",
-    "config": "^3.3.3",
-    "express": "^4.17.1",
-    "hyperion-client": "^1.0.3",
-    "lodash": "^4.5.1",
-    "midi": "^1.0.0",
-    "mobx": "^6.1.5",
-    "mobx-state-tree": "^5.0.1",
-    "node-hid": "^0.7.0",
-    "node-traktor-f1": "git+https://github.com/7daysofrain/node-traktor-f1.git",
-    "nodemon": "^2.0.7",
-    "python-shell": "^2.0.3",
-    "tinycolor2": "^1.4.1",
-    "ws": "^8.9.0"
-  },
+  "version": "0.0.0",
+  "license": "MIT",
+  "scripts": {},
+  "private": true,
+  "dependencies": {},
   "devDependencies": {
-    "@babel/core": "^7.12.13",
-    "@babel/node": "^7.12.13",
-    "@babel/preset-env": "^7.12.13"
-  }
+    "@nrwl/nx-cloud": "latest",
+    "nx": "15.0.0",
+    "prettier": "^2.6.2"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
 }

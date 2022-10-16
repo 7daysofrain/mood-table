@@ -1,8 +1,8 @@
 import Hyperion from "hyperion-client";
 import {autorun} from "mobx";
 import config from 'config';
-import appState from "../models/app-state.js";
-import throttle from "../utils/throttle.js";
+import appState from "@mood-table/shared/src/models/app-state.js";
+import throttle from "@mood-table/shared/src/utils/throttle.js";
 import {PythonShell} from "python-shell";
 
 export default class DancingPIView {

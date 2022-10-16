@@ -21,15 +21,26 @@ class WSSBridgeServer extends EventTarget{
         // FIXME sacar de aqui
         autorun(() => {
             const plain = mobx.toJS(appState);
-            return this.sendMessage(JSON.stringify(plain));
+            return this.sendMessage('state', plain);
         });
     }
     handleMessage = message => {
-        console.log('received: %s', message);
-        this.dispatchEvent(new Event('message', message));
+        const payload = JSON.parse(message.toString());
+        console.log('received: %s', payload);
+        switch(payload.type) {
+            case 'changeFX':
+                const e = new Event('changeFX');
+                e.data = payload;
+                this.dispatchEvent(e);
+        }
     }
-    sendMessage(message) {
-        this.connection.send(message);
+    sendMessage(type, message) {
+        const payload = {
+            type,
+            message
+        };
+
+        this.connection.send(JSON.stringify(payload));
     }
 }
 const server = new WSSBridgeServer();

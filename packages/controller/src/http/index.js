@@ -9,9 +9,9 @@ const debug = console.log;
 
 export default function createServer(){
     const app = express();
-    app.use('/static', express.static( path.join(process.cwd(), 'app/views/lcd-display-ui/build/static')))
+    app.use('/static', express.static( path.join(process.cwd(), 'src/views/lcd-display-ui/build/static')))
     app.get('/', (req, res) => {
-        res.sendFile(path.join(process.cwd(), 'app/views/lcd-display-ui/build/index.html'));
+        res.sendFile(path.join(process.cwd(), 'src/views/lcd-display-ui/build/index.html'));
     })
     const server = http.createServer(app);
     server.listen(config.get('http-port'));

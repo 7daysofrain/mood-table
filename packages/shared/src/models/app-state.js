@@ -1,5 +1,5 @@
 import {makeAutoObservable} from "mobx";
-import config from 'config';
+import { effects } from '../config/effects.js'
 import FX from "./fx.js";
 
 function configToArg(args, configItem){
@@ -27,8 +27,7 @@ class AppState {
         this.loadFX();
     }
     loadFX() {
-        const effectMap = config.get('effects');
-        for (const [key, value] of Object.entries(effectMap)) {
+        for (const [key, value] of Object.entries(effects)) {
             this.fxs[value.name] = new FX(value.name, value.mainColor, value.config);
         }
     }
@@ -48,6 +47,13 @@ class AppState {
     }
     clearFX() {
         this._currentFX = null;
+    }
+    updateState(newState) {
+        this.page = newState.page;
+        this.fxs = newState.fxs;
+        this._currentFX = newState._currentFX;
+        this._currentFXArgs = newState._currentFXArgs;
+        this._currentViz = newState._currentViz;
     }
 }
 

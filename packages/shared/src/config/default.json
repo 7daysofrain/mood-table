@@ -1,0 +1,8 @@
+{
+  "hyperion": "192.168.1.11",
+  "dancingPiPath": "",
+  "dancingPiVizScript": "python/test.py",
+  "dancingPiOffScript": "python/test.py",
+  "http-port": 8080,
+  "wss-port": 8090
+}

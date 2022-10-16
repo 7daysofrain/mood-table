@@ -20,15 +20,29 @@ export default class WSSBridgeClient extends EventTarget{
     }
     onMessage = (evt) => {
         console.log('message', evt);
-        //doSend("WebSocket rocks");
+        const data = JSON.parse(evt.data);
+        switch (data.type) {
+            case "state":
+                console.log("new state received");
+                const e = new Event('stateUpdated');
+                e.data = data;
+                this.dispatchEvent(e);
+        }
     }
     onError = (evt) => {
         console.log('error', evt);
         //doSend("WebSocket rocks");
     }
-    send(message) {
-        console.log('sending', message);
-        this.websocket.send(message);
+    send(type, message) {
+        console.log('sending', type, message);
+        const payload = {
+            type,
+            message
+        }
+        this.websocket.send(JSON.stringify(payload));
+    }
+    changeFX(name) {
+        this.send('changeFX', name);
     }
 }
 

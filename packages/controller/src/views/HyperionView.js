@@ -1,8 +1,8 @@
 import Hyperion from "hyperion-client";
 import {autorun} from "mobx";
 import config from 'config';
-import appState from "../models/app-state.js";
-import throttle from "../utils/throttle.js";
+import appState from "../../../shared/src/models/app-state.js";
+import throttle from "../../../shared/src/utils/throttle.js";
 
 export default class HyperionView {
     constructor() {

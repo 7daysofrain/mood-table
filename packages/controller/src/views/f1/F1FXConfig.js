@@ -3,8 +3,8 @@ import blinkF1Button from "../../libs/f1/utils/blinkf1button.js";
 import f1Navigator from "./f1Navigator.js";
 import allLedsRgb from "../../libs/f1/utils/allLedsRgb.js";
 import chroma from 'chroma-js'
-import debounce from "../../utils/debounce.js";
-import clamp from "../../utils/clamp.js";
+import debounce from "../../../../shared/src/utils/debounce.js";
+import clamp from "../../../../shared/src/utils/clamp.js";
 import {PythonShell} from 'python-shell';
 
 export default class F1FXConfig extends F1View{
