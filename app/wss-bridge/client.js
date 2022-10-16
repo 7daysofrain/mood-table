@@ -1,9 +1,8 @@
-import config from "config";
 
 export default class WSSBridgeClient extends EventTarget{
     constructor() {
         super();
-        const port = config.get('wss-port')
+        const port = 8090;
         const wsUri = `ws://localhost:${port}/`;
         this.websocket = new WebSocket(wsUri);
         this.websocket.onopen = this.onOpen;

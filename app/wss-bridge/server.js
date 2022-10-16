@@ -1,7 +1,7 @@
 import appState from "../models/app-state.js";
 import mobx, {autorun} from "mobx";
 
-import WebSocket from 'ws';
+import { WebSocketServer } from 'ws';
 import config from "config";
 
 class WSSBridgeServer extends EventTarget{
@@ -9,7 +9,7 @@ class WSSBridgeServer extends EventTarget{
     constructor() {
         super();
         const port = config.get('wss-port')
-        this.wss = new WebSocket.Server({ port });
+        this.wss = new WebSocketServer({ port });
         this.wss.on('connection', this.handleConnection);
     }
     handleConnection = ws => {
@@ -19,7 +19,10 @@ class WSSBridgeServer extends EventTarget{
         this.connection = ws;
         this.dispatchEvent(new Event('connected'));
         // FIXME sacar de aqui
-        autorun((store) => this.sendMessage(JSON.stringify(mobx.toJS(store))));
+        autorun(() => {
+            const plain = mobx.toJS(appState);
+            return this.sendMessage(JSON.stringify(plain));
+        });
     }
     handleMessage = message => {
         console.log('received: %s', message);
