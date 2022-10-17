@@ -2,6 +2,10 @@
 export default class WSSBridgeClient extends EventTarget{
     constructor() {
         super();
+        this.connect();
+    }
+    connect() {
+        clearInterval(this.intervalId);
         const port = 8090;
         const wsUri = `ws://localhost:${port}/`;
         this.websocket = new WebSocket(wsUri);
@@ -16,6 +20,7 @@ export default class WSSBridgeClient extends EventTarget{
     }
     onClose = (evt) => {
         console.log('close', evt);
+        this.intervalId = setInterval(() => this.connect(), 100);
         //doSend("WebSocket rocks");
     }
     onMessage = (evt) => {
