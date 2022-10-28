@@ -26,8 +26,10 @@ def on_open(ws):
 if __name__ == '__main__':
 
     websocket.enableTrace(True)
-    ws = websocket.WebSocketApp("ws://localhost:8090", on_message=on_message)
-    ws.run_forever()
+   ws = websocket.WebSocket()
+         ws.connect("ws://echo.websocket.events")
+         ws.send("Hello, Server")
+         print(ws.recv())
 
     ser = serial.Serial('/dev/ttyACM0', 115200, timeout=1)
     ser.reset_input_buffer()
