@@ -26,10 +26,15 @@ def on_open(ws):
 if __name__ == '__main__':
 
     websocket.enableTrace(True)
-   ws = websocket.WebSocket()
-         ws.connect("ws://echo.websocket.events")
-         ws.send("Hello, Server")
-         print(ws.recv())
+    ws = websocket.WebSocketApp("ws://localhost:8091",
+                              on_open=on_open,
+                              on_message=on_message,
+                              on_error=on_error,
+                              on_close=on_close)
+
+    ws.run_forever(dispatcher=rel)  # Set dispatcher to automatic reconnection
+    rel.signal(2, rel.abort)  # Keyboard Interrupt
+    rel.dispatch()
 
     ser = serial.Serial('/dev/ttyACM0', 115200, timeout=1)
     ser.reset_input_buffer()
@@ -47,7 +52,3 @@ if __name__ == '__main__':
                         message = "Blue mood blobs"
                     )
                 ws.send(json.dumps(msg))
-import websocket
-
-
-wsapp.run_forever()

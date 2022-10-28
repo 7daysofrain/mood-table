@@ -4,5 +4,5 @@
   "dancingPiVizScript": "python/test.py",
   "dancingPiOffScript": "python/test.py",
   "http-port": 8080,
-  "wss-port": 8090
+  "wss-port": 8091
 }
