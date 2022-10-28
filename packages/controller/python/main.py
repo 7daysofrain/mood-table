@@ -32,10 +32,8 @@ if __name__ == '__main__':
                               on_error=on_error,
                               on_close=on_close)
 
-    ws.run_forever(dispatcher=rel)  # Set dispatcher to automatic reconnection
-    rel.signal(2, rel.abort)  # Keyboard Interrupt
-    rel.dispatch()
-
+    ws.run_forever()  # Set dispatcher to automatic reconnection
+    print("Python Serial Setup...")
     ser = serial.Serial('/dev/ttyACM0', 115200, timeout=1)
     ser.reset_input_buffer()
 
