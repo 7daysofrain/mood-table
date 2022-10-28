@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "start": "NODE_CONFIG_DIR=../shared/src/config/ nodemon --exec babel-node src/index.js",
-    "prod": "export NODE_ENV=production && babel-node src/index.js",
+    "prod": "export NODE_ENV=production NODE_CONFIG_DIR=../shared/src/config/ && babel-node src/index.js",
     "build": "babel index.js -d dist"
   },
   "type": "module",
