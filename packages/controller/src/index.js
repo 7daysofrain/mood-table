@@ -16,10 +16,7 @@ const dancingPiView = new DancingPIView();
 sockets.addEventListener('changeFX', ev => {
     appState.setFX(ev.data.message);
 })
-sockets.addEventListener('connected', ev => {
-    console.log('Running python bridge')
-    runPython('python/main.py');
-})
+setTimeout(() => runPython('python/main.py'), 4000);
 /**
  * Run the python main shell
  */
