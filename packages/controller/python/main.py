@@ -34,9 +34,10 @@ if __name__ == '__main__':
     print("Python Serial Setup...")
     ser = serial.Serial('/dev/ttyACM0', 115200, timeout=1)
     ser.reset_input_buffer()
-
+    print("Python Serial Done") 
     while True:
         number = ser.read()
+        print(number)
         if number != b'':
             if int.from_bytes(number, byteorder='big') == 18:
                 led_number = random.randint(1,4)
