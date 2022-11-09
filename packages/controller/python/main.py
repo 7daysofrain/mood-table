@@ -37,8 +37,8 @@ if __name__ == '__main__':
     print("Python Serial Done") 
     while True:
         number = ser.read()
-        print(number)
         if number != b'':
+            print(int.from_bytes(number, byteorder='big'))
             if int.from_bytes(number, byteorder='big') == 18:
                 led_number = random.randint(1,4)
                 print("Button has been pressed.")
