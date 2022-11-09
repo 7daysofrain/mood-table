@@ -11,7 +11,7 @@ import {PythonShell} from "python-shell";
 const httpServer = createServer();
 const sockets = wss;
 const hyperionView = new HyperionView();
-const dancingPiView = new DancingPIView();
+//const dancingPiView = new DancingPIView();
 
 sockets.addEventListener('changeFX', ev => {
     appState.setFX(ev.data.message);
@@ -31,11 +31,12 @@ function runPython(file, args) {
     if(pyShell) {
         pyShell.kill();
     }
+    console.log("Running Python controller")
     pyShell = PythonShell.run(file, options, function (err, results) {
         //On 'results' we get list of strings of all print done in your py scripts sequentially.
         if (err) throw err;
         if(results){
-            console.log('results: ');
+            console.log('Python Controller: ');
             for (let i of results) {
                 console.log(i, "---->", typeof i)
             }
