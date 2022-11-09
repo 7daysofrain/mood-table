@@ -45,4 +45,4 @@ if __name__ == '__main__':
                 print("Sending number " + str(led_number) + " to Arduino.")
                 ser.write(str(led_number).encode('utf-8'))
                 msg = {'type': 'changeFX', 'message': 'Blue mood blobs'}
-                ws.send(json.dumps(msg))
+"""                 ws.send(json.dumps(msg)) """

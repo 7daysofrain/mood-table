@@ -36,7 +36,7 @@ function runPython(file, args) {
         //On 'results' we get list of strings of all print done in your py scripts sequentially.
         if (err) throw err;
         if(results){
-            console.log('Python Controller: ');
+            console.log('Python Controller2: ');
             for (let i of results) {
                 console.log(i, "---->", typeof i)
             }
