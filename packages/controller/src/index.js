@@ -32,15 +32,21 @@ function runPython(file, args) {
         pyShell.kill();
     }
     console.log("Running Python controller")
-    pyShell = PythonShell.run(file, options, function (err, results) {
-        //On 'results' we get list of strings of all print done in your py scripts sequentially.
-        if (err) throw err;
-        if(results){
-            console.log('Python Controller2: ');
-            for (let i of results) {
-                console.log(i, "---->", typeof i)
-            }
-        }
+    pyShell = new PythonShell(file);
+
+    pyShell.on('message', function (message) {
+        // received a message sent from the Python script (a simple "print" statement)
+        console.log(message);
     });
+    // pyShell = PythonShell.run(file, options, function (err, results) {
+    //     //On 'results' we get list of strings of all print done in your py scripts sequentially.
+    //     if (err) throw err;
+    //     if(results){
+    //         console.log('Python Controller3: ');
+    //         for (let i of results) {
+    //             console.log(i, "---->", typeof i)
+    //         }
+    //     }
+    // });
 }
 

@@ -1,4 +1,4 @@
-# Mood Table Project
+# Mood Table Project 2
 
 #Image setup
 
