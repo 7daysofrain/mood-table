@@ -31,6 +31,9 @@ if __name__ == '__main__':
                               on_message=on_message,
                               on_error=on_error,
                               on_close=on_close)
+    ws.run_forever(dispatcher=rel, reconnect=5)
+    rel.signal(2, rel.abort)  # Keyboard Interrupt
+    rel.dispatch()
     print("Python Serial Setup...")
     ser = serial.Serial('/dev/ttyACM0', 115200, timeout=1)
     ser.reset_input_buffer()
@@ -45,4 +48,4 @@ if __name__ == '__main__':
                 print("Sending number " + str(led_number) + " to Arduino.")
                 ser.write(str(led_number).encode('utf-8'))
                 msg = {'type': 'changeFX', 'message': 'Blue mood blobs'}
-"""                 ws.send(json.dumps(msg)) """
+                ws.send(json.dumps(msg))

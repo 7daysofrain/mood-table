@@ -32,11 +32,11 @@ function runPython(file, args) {
         pyShell.kill();
     }
     console.log("Running Python controller")
-    pyShell = new PythonShell(file);
+    pyShell = new PythonShell(file, options);
 
     pyShell.on('message', function (message) {
         // received a message sent from the Python script (a simple "print" statement)
-        console.log(message);
+        console.log("Python controller: " + message);
     });
     // pyShell = PythonShell.run(file, options, function (err, results) {
     //     //On 'results' we get list of strings of all print done in your py scripts sequentially.
