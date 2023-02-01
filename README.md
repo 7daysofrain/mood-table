@@ -29,3 +29,7 @@ sudo apt update
  https://tengfone.medium.com/setting-up-raspberry-pi-4-3-5-touch-screen-xpt2046-349e484a7813
  
 ## Kiosk mode
+
+## Comandos Arduino
+arduino-cli compile -b arduino:avr:nano:cpu=atmega328 controllerr2
+arduino-cli upload -v -p /dev/ttyUSB0 -b arduino:avr:nano:cpu=atmega328 controllerr2

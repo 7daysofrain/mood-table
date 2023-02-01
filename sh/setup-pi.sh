@@ -24,8 +24,8 @@ curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
 sudo apt-get install -y nodejs
 
 # project
-git clone https://github.com/7daysofrain/f1-led.git
-cd f1-led
+git clone https://github.com/7daysofrain/mood-table.git
+cd mood-table
 sudo npm install #da error HID no pasa nada
 sudo npm install node-hid --build-from-source
 
