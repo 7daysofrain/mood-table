@@ -5,6 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "start": "NODE_CONFIG_DIR=../shared/src/config/ nodemon --exec babel-node src/index.js",
+    "start2": "NODE_CONFIG_DIR=../shared/src/config/ node src/index.js",
     "prod": "export NODE_ENV=production NODE_CONFIG_DIR=../shared/src/config/ && babel-node src/index.js",
     "build": "babel index.js -d dist"
   },
@@ -21,12 +22,11 @@
     "midi": "^1.0.0",
     "mobx": "^6.1.5",
     "mobx-state-tree": "^5.0.1",
-    "node-hid": "^0.7.0",
-    "node-traktor-f1": "git+https://github.com/7daysofrain/node-traktor-f1.git",
     "nodemon": "^2.0.7",
     "python-shell": "^2.0.3",
     "tinycolor2": "^1.4.1",
-    "ws": "^8.9.0"
+    "ws": "^8.9.0",
+    "serialport": "~10.5.0"
   },
   "devDependencies": {
     "@babel/plugin-proposal-class-properties": "^7.12.13",

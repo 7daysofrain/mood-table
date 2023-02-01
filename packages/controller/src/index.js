@@ -1,25 +1,28 @@
 import HyperionView from "./views/HyperionView.js";
 //import f1Navigator from "./views/f1/f1Navigator.js";
-import DancingPIView from "./views/DancingPIView.js";
-import createServer from "./http/index.js";
-import wss from "@mood-table/shared/src/wss-bridge/server.js";
+//import DancingPIView from "./views/DancingPIView.js";
+//import createServer from "./http/index.js";
 import appState from "@mood-table/shared/src/models/app-state.js";
-import {PythonShell} from "python-shell";
+
 
 
 //f1Navigator.navigate('home');
-const httpServer = createServer();
-const sockets = wss;
+//const httpServer = createServer();
 const hyperionView = new HyperionView();
 //const dancingPiView = new DancingPIView();
 
-sockets.addEventListener('changeFX', ev => {
-    appState.setFX(ev.data.message);
-})
-setTimeout(() => runPython('python/main.py'), 4000);
+
+
+// import wss from "@mood-table/shared/src/wss-bridge/server.js";
+// const sockets = wss;
+// sockets.addEventListener('changeFX', ev => {
+//     appState.setFX(ev.data.message);
+// })
 /**
  * Run the python main shell
+ * Disabled now
  */
+import {PythonShell} from "python-shell";
 let pyShell
 const pythonDefaults = {
     mode: 'text',
@@ -49,4 +52,4 @@ function runPython(file, args) {
     //     }
     // });
 }
-
+// setTimeout(() => runPython('python/main.py'), 4000);
