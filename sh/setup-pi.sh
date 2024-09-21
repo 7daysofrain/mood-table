@@ -1,23 +1,27 @@
-#basics
+# use a 32 bit raspberry image
+
+# basics
 sudo apt update
+sudo apt-get update
 sudo apt install build-essential git
 sudo apt install gcc-4.8 g++-4.8 && export CXX=g++-4.8
 sudo apt install libusb-1.0-0 libusb-1.0-0-dev
 sudo apt install libudev-dev
 sudo apt-get install libasound2-dev
 
-#dancing-pi
+# dancing-pi
 sudo git clone https://github.com/naztronaut/dancyPi-audio-reactive-led.git
 cd dancyPi-audio-reactive-led/python/install
 sudo python3 install.py
-## ajustar PIN GPIO y NUM DE LEDS
+
+## luego ajustar PIN GPIO (12) y NUM DE LEDS (186)
 
 # hyperion
 
-wget https://github.com/hyperion-project/hyperion.ng/releases/download/2.0.0-alpha.9/Hyperion-2.0.0-alpha.9-Linux-armv7l.deb
-apt install ./Hyperion-2.0.0-alpha.9-Linux-armv7l.deb
-sudo systemctl disable --now hyperiond@pi
-sudo systemctl enable --now hyperiond@root
+wget https://github.com/hyperion-project/hyperion.ng/releases/download/2.0.16/Hyperion-2.0.16-Linux-armv7.deb
+apt install ./Hyperion-2.0.16-Linux-armv7.deb
+sudo systemctl disable --now hyperion@pi
+sudo systemctl enable --now hyperion@root
 
 # node
 curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
