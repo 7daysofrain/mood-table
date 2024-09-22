@@ -1,8 +1,7 @@
-import traktorF1 from 'node-traktor-f1/lib/traktor_f1.js';
+
 import {autorun} from "mobx";
 import appState from "@mood-table/shared/src/models/app-state.js";
-
-//const f1 = new traktorF1.TraktorF1();
+import {createNodeHidAdapter, createNodeUsbAdapter, TraktorF1} from "ni-controllers-lib";
 
 export default class F1View {
     listeners = [];
@@ -11,8 +10,12 @@ export default class F1View {
         return this._visible;
     }
     constructor() {
-        this.f1 = f1;
+        console.log("INIT")
         this.store = appState;
+    }
+    async init() {
+        this.f1 = new TraktorF1(createNodeHidAdapter, createNodeUsbAdapter);
+        await this.f1.init();
         this._layoutDefaults();
         this.disposeMobx = autorun(() => this._update());
     }

@@ -1,0 +1,14 @@
+diff --git a/node_modules/ni-controllers-lib/dist/lib/base_controller.js b/node_modules/ni-controllers-lib/dist/lib/base_controller.js
+index 35ba760..1f3abdc 100644
+--- a/node_modules/ni-controllers-lib/dist/lib/base_controller.js
++++ b/node_modules/ni-controllers-lib/dist/lib/base_controller.js
+@@ -70,8 +70,7 @@ class BaseController extends events_1.EventEmitter {
+                     this.processInputBlock(key, inputConfig, hidDevice);
+                 }
+             }
+-            if ((key === "output" || key === "output2") &&
+-                this.config.indexed_led_mapping != null) {
++            if ((key === "output" || key === "output2")) {
+                 const outputConfig = this.config[key];
+                 if (outputConfig != null) {
+                     this.processOutputBlock(key, outputConfig, this.config.ledBrightestValue, this.config.indexed_led_mapping, hidDevice);

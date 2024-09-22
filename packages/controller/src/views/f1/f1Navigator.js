@@ -4,12 +4,13 @@ import F1FXConfig from "./F1FXConfig.js";
 class F1Navigator{
     _currentScreen = null;
     history = [];
-    navigate(name) {
+    async navigate(name) {
         const Screen = Screens[name];
         if(this._currentScreen !== null) {
             this._currentScreen.hide();
         }
         this._currentScreen = new Screen();
+        await this._currentScreen.init();
         this._currentScreen.show();
         this.history.push(this._currentScreen);
         console.log(`navigating ${name} screen. history length: ${this.history.length}`);
