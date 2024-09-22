@@ -1,7 +1,7 @@
 {
-  "hyperion": "192.168.1.11",
+  "hyperion": "192.168.0.173",
   "dancingPiPath": "",
-  "dancingPiVizScript": "python/test.py",
+  "dancingPiVizScript": "../../../dancyPi-audio-reactive-led/python/visualization.py",
   "dancingPiOffScript": "python/test.py",
   "http-port": 8080,
   "wss-port": 8091,

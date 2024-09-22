@@ -4,10 +4,11 @@
   "description": "Mood Table",
   "main": "src/index.js",
   "scripts": {
-    "start": "NODE_CONFIG_DIR=../shared/src/config/ nodemon --exec babel-node src/index.js",
+    "start": "NODE_CONFIG_DIR=../shared/src/config/ nodemon --exec babel-node src/index.js --inspect=0.0.0.0:9229",
     "start2": "NODE_CONFIG_DIR=../shared/src/config/ node src/index.js",
     "prod": "export NODE_ENV=production NODE_CONFIG_DIR=../shared/src/config/ && babel-node src/index.js",
-    "build": "babel index.js -d dist"
+    "build": "babel index.js -d dist",
+    "postinstall": "patch-package"
   },
   "type": "module",
   "keywords": [],

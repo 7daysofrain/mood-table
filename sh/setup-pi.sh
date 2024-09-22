@@ -15,6 +15,7 @@ cd dancyPi-audio-reactive-led/python/install
 sudo python3 install.py
 
 ## luego ajustar PIN GPIO (12) y NUM DE LEDS (186)
+## Hay que ajustar la card id en /usr/share/alsa/alsa.conf usa arecord -l para ver cual es
 
 # hyperion
 

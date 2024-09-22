@@ -10,8 +10,12 @@ export default class F1View {
         return this._visible;
     }
     constructor() {
-        this.f1 = new TraktorF1(createNodeHidAdapter, createNodeUsbAdapter);
+        console.log("INIT")
         this.store = appState;
+    }
+    async init() {
+        this.f1 = new TraktorF1(createNodeHidAdapter, createNodeUsbAdapter);
+        await this.f1.init();
         this._layoutDefaults();
         this.disposeMobx = autorun(() => this._update());
     }
