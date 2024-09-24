@@ -18,6 +18,7 @@ cd ..
 ## luego ajustar PIN GPIO (12) y NUM DE LEDS (186)
 sed -i -e 's/N_PIXELS = 144/N_PIXELS = 186/g' config.py
 sed -i -e 's/LED_PIN = 18/LED_PIN = 12/g' config.py
+cd ~/
 
 # hyperion
 
