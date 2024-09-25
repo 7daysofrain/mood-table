@@ -6,7 +6,7 @@
 			0
 		],
 		"effect": "Warm mood blobs",
-		"enable": false,
+		"enable": true,
 		"type": "effect"
 	},
 	"blackborderdetector": {
@@ -23,6 +23,19 @@
 		"port": 19333,
 		"priority": 128
 	},
+	"cecEvents": {
+		"actions": [
+			{
+				"action": "Suspend",
+				"event": "standby"
+			},
+			{
+				"action": "Resume",
+				"event": "set stream path"
+			}
+		],
+		"enable": false
+	},
 	"color": {
 		"channelAdjustment": [
 			{
@@ -35,6 +48,7 @@
 				],
 				"brightness": 100,
 				"brightnessCompensation": 100,
+				"brightnessGain": 1,
 				"cyan": [
 					0,
 					255,
@@ -60,6 +74,7 @@
 					0,
 					0
 				],
+				"saturationGain": 1,
 				"white": [
 					255,
 					255,
@@ -75,14 +90,18 @@
 		"imageToLedMappingType": "multicolor_mean"
 	},
 	"device": {
+		"autoStart": true,
 		"colorOrder": "rgb",
 		"delayAfterConnect": 0,
-		"hardwareLedCount": 1,
+		"enableAttempts": 12,
+		"enableAttemptsInterval": 15,
+		"hardwareLedCount": 200,
 		"latchTime": 30,
-		"lightberry_apa102_mode": false,
 		"output": "/dev/ttyUSB0",
 		"rate": 115200,
+		"rateList": "CUSTOM",
 		"rewriteTime": 1000,
+		"streamProtocol": "0",
 		"type": "adalight"
 	},
 	"effects": {
@@ -110,41 +129,70 @@
 		"type": "effect"
 	},
 	"forwarder": {
-		"enable": false,
-		"flat": [
-			"127.0.0.1:19401"
-		],
-		"json": [
-			"127.0.0.1:19446"
-		]
+		"enable": false
 	},
 	"framegrabber": {
 		"cropBottom": 0,
 		"cropLeft": 0,
 		"cropRight": 0,
 		"cropTop": 0,
-		"display": 0,
-		"frequency_Hz": 10,
+		"device": "auto",
+		"enable": false,
+		"fps": 10,
 		"height": 45,
+		"input": 0,
 		"pixelDecimation": 8,
-		"type": "auto",
 		"width": 80
 	},
 	"general": {
-		"name": "My Hyperion Config",
+		"configVersion": "2.0.16",
+		"name": "Moodtable config",
+		"previousVersion": "2.0.16",
 		"showOptHelp": true,
 		"watchedVersionBranch": "Stable"
 	},
+	"grabberAudio": {
+		"audioEffect": "vuMeter",
+		"device": "auto",
+		"enable": false,
+		"vuMeter": {
+			"hotColor": [
+				255,
+				0,
+				0
+			],
+			"multiplier": 1,
+			"safeColor": [
+				0,
+				255,
+				0
+			],
+			"safeValue": 45,
+			"tolerance": 5,
+			"warnColor": [
+				255,
+				255,
+				0
+			],
+			"warnValue": 80
+		}
+	},
 	"grabberV4L2": {
 		"blueSignalThreshold": 5,
-		"cecDetection": false,
 		"cropBottom": 0,
 		"cropLeft": 0,
 		"cropRight": 0,
 		"cropTop": 0,
 		"device": "auto",
+		"enable": false,
+		"flip": "NO_CHANGE",
 		"fps": 15,
+		"fpsSoftwareDecimation": 0,
 		"greenSignalThreshold": 5,
+		"hardware_brightness": 0,
+		"hardware_contrast": 0,
+		"hardware_hue": 0,
+		"hardware_saturation": 0,
 		"height": 0,
 		"input": 0,
 		"redSignalThreshold": 5,
@@ -158,9 +206,14 @@
 		"width": 0
 	},
 	"instCapture": {
+		"audioEnable": false,
+		"audioGrabberDevice": "NONE",
+		"audioPriority": 230,
 		"systemEnable": true,
+		"systemGrabberDevice": "NONE",
 		"systemPriority": 250,
 		"v4lEnable": false,
+		"v4lGrabberDevice": "NONE",
 		"v4lPriority": 240
 	},
 	"jsonServer": {
@@ -1409,18 +1462,23 @@
 		"localApiAuth": false,
 		"restirctedInternetAccessAPI": false
 	},
+	"osEvents": {
+		"lockEnable": true,
+		"suspendEnable": true
+	},
 	"protoServer": {
 		"enable": true,
 		"port": 19445,
 		"timeout": 5
 	},
+	"schedEvents": {
+		"enable": false
+	},
 	"smoothing": {
-		"continuousOutput": true,
 		"decay": 1,
 		"dithering": false,
 		"enable": true,
 		"interpolationRate": 25,
-		"outputRate": 25,
 		"time_ms": 200,
 		"type": "linear",
 		"updateDelay": 0,
